@@ -25,29 +25,18 @@
 
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
+import org.bukkit.inventory.meta.FireworkMeta;
+
+
 /**
- * {@link org.bukkit.entity.AreaEffectCloud} watcher
+ * {@link org.bukkit.entity.Firework} watcher
  *
  * @author Mark Vainomaa
  */
-public interface AreaEffectCloudWatcher extends EntityWatcher {
-    float getRadius();
-    void setRadius(float radius);
+public interface FireworkWatcher {
+    FireworkMeta getFireworkMeta();
+    void setFireworkMeta(FireworkMeta meta);
 
-    int getColor();
-    void setColor(int color);
-
-    int getParticleId();
-    void setParticleId(int particleId);
-
-    boolean hasIgnoreRadius();
-    void setIgnoreRadius(boolean ignoreRadius);
-
-    /* TODO: http://wiki.vg/Entities#AreaEffectCloud
-    int getParticleParamOne();
-    void setParticleParamOne(int paramOne);
-
-    int getParticleParamTwo();
-    void setParticleParamTwo(int paramTwo);
-    */
+    int getAttachedEntity();
+    void setAttachedEntity(int entity);
 }

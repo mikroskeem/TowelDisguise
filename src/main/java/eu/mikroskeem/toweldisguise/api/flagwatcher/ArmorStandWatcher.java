@@ -50,7 +50,7 @@ public interface ArmorStandWatcher extends LivingEntityWatcher {
     EulerAngle getRightLeg();
     void setRightLeg(EulerAngle vector);
 
-    boolean isMarker();
+    boolean hassMarker();
     void setMarker(boolean marker);
 
     boolean hasNoBasePlate();

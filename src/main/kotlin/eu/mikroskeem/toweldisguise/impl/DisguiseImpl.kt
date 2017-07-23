@@ -26,7 +26,7 @@
 package eu.mikroskeem.toweldisguise.impl
 
 import eu.mikroskeem.toweldisguise.api.disguise.Disguise
-import eu.mikroskeem.toweldisguise.api.flagwatcher.FlagWatcher
+import eu.mikroskeem.toweldisguise.api.flagwatcher.EntityWatcher
 import org.bukkit.entity.EntityType
 
 /**
@@ -37,7 +37,7 @@ class DisguiseImpl: Disguise {
         TODO("not implemented") // Implement this
     }
 
-    override fun getFlagWatcher(): FlagWatcher {
+    override fun getFlagWatcher(): EntityWatcher {
         TODO("not implemented") // Implement this
     }
 }

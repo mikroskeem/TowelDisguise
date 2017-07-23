@@ -25,29 +25,16 @@
 
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
+import org.bukkit.inventory.MainHand;
+
+
 /**
- * {@link org.bukkit.entity.AreaEffectCloud} watcher
- *
  * @author Mark Vainomaa
  */
-public interface AreaEffectCloudWatcher extends EntityWatcher {
-    float getRadius();
-    void setRadius(float radius);
+public interface InsentientWatcher extends LivingEntityWatcher {
+    MainHand getMainHand();
+    void setMainHand(MainHand mainHand);
 
-    int getColor();
-    void setColor(int color);
-
-    int getParticleId();
-    void setParticleId(int particleId);
-
-    boolean hasIgnoreRadius();
-    void setIgnoreRadius(boolean ignoreRadius);
-
-    /* TODO: http://wiki.vg/Entities#AreaEffectCloud
-    int getParticleParamOne();
-    void setParticleParamOne(int paramOne);
-
-    int getParticleParamTwo();
-    void setParticleParamTwo(int paramTwo);
-    */
+    boolean hasAI();
+    void setHasAI(boolean hasAI);
 }

@@ -25,29 +25,24 @@
 
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
+import org.bukkit.entity.Monster;
+
+
 /**
- * {@link org.bukkit.entity.AreaEffectCloud} watcher
+ * {@link org.bukkit.entity.Wither} watcher
  *
  * @author Mark Vainomaa
  */
-public interface AreaEffectCloudWatcher extends EntityWatcher {
-    float getRadius();
-    void setRadius(float radius);
+public interface WitherWatcher extends Monster {
+    int getLeftHeadTarget();
+    void setLeftHeadTarget(int target);
 
-    int getColor();
-    void setColor(int color);
+    int getCenterHeadTarget();
+    void setCenterHeadTarget(int target);
 
-    int getParticleId();
-    void setParticleId(int particleId);
+    int getRightHeadTarget();
+    void setRightHeadTarget(int target);
 
-    boolean hasIgnoreRadius();
-    void setIgnoreRadius(boolean ignoreRadius);
-
-    /* TODO: http://wiki.vg/Entities#AreaEffectCloud
-    int getParticleParamOne();
-    void setParticleParamOne(int paramOne);
-
-    int getParticleParamTwo();
-    void setParticleParamTwo(int paramTwo);
-    */
+    int getInvulnerableTime();
+    void setInvulnerableTime(int invulnerableTime);
 }

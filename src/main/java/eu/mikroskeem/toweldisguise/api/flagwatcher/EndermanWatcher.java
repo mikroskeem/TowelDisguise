@@ -25,29 +25,19 @@
 
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
+import org.bukkit.Material;
+import org.jetbrains.annotations.Nullable;
+
+
 /**
- * {@link org.bukkit.entity.AreaEffectCloud} watcher
+ * {@link org.bukkit.entity.Enderman} watcher
  *
  * @author Mark Vainomaa
  */
-public interface AreaEffectCloudWatcher extends EntityWatcher {
-    float getRadius();
-    void setRadius(float radius);
+public interface EndermanWatcher extends MonsterWatcher {
+    boolean isScreaming();
+    void setScreaming(boolean screaming);
 
-    int getColor();
-    void setColor(int color);
-
-    int getParticleId();
-    void setParticleId(int particleId);
-
-    boolean hasIgnoreRadius();
-    void setIgnoreRadius(boolean ignoreRadius);
-
-    /* TODO: http://wiki.vg/Entities#AreaEffectCloud
-    int getParticleParamOne();
-    void setParticleParamOne(int paramOne);
-
-    int getParticleParamTwo();
-    void setParticleParamTwo(int paramTwo);
-    */
+    @Nullable Material getItemHands();
+    void setItemInHands(@Nullable Material item);
 }

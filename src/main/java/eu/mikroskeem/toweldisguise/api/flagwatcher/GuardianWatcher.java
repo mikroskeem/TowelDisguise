@@ -26,28 +26,14 @@
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
 /**
- * {@link org.bukkit.entity.AreaEffectCloud} watcher
+ * {@link org.bukkit.entity.Guardian} watcher
  *
  * @author Mark Vainomaa
  */
-public interface AreaEffectCloudWatcher extends EntityWatcher {
-    float getRadius();
-    void setRadius(float radius);
+public interface GuardianWatcher extends MonsterWatcher {
+    boolean isRetractingSpikes();
+    void setRetractingSpikes(boolean retractingSpikes);
 
-    int getColor();
-    void setColor(int color);
-
-    int getParticleId();
-    void setParticleId(int particleId);
-
-    boolean hasIgnoreRadius();
-    void setIgnoreRadius(boolean ignoreRadius);
-
-    /* TODO: http://wiki.vg/Entities#AreaEffectCloud
-    int getParticleParamOne();
-    void setParticleParamOne(int paramOne);
-
-    int getParticleParamTwo();
-    void setParticleParamTwo(int paramTwo);
-    */
+    int getTargetEntity();
+    void setTargetEntity(int entity);
 }

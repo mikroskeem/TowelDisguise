@@ -25,29 +25,28 @@
 
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
+import org.jetbrains.annotations.Nullable;
+
+import java.util.UUID;
+
+
 /**
- * {@link org.bukkit.entity.AreaEffectCloud} watcher
+ * {@link org.bukkit.entity.Tameable} watcher
  *
  * @author Mark Vainomaa
  */
-public interface AreaEffectCloudWatcher extends EntityWatcher {
-    float getRadius();
-    void setRadius(float radius);
+public interface TameableAnimalWatcher extends AnimalWatcher {
+    boolean isSitting();
+    void setSitting(boolean sitting);
 
-    int getColor();
-    void setColor(int color);
-
-    int getParticleId();
-    void setParticleId(int particleId);
-
-    boolean hasIgnoreRadius();
-    void setIgnoreRadius(boolean ignoreRadius);
-
-    /* TODO: http://wiki.vg/Entities#AreaEffectCloud
-    int getParticleParamOne();
-    void setParticleParamOne(int paramOne);
-
-    int getParticleParamTwo();
-    void setParticleParamTwo(int paramTwo);
+    /*
+    boolean isAngry();
+    void setAngry(boolean angry);
     */
+
+    boolean isTamed();
+    void setTamed(boolean tamed);
+
+    @Nullable UUID getOwner();
+    void setOwner(@Nullable UUID owner);
 }

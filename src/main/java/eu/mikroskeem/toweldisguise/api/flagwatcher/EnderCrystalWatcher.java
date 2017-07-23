@@ -25,8 +25,19 @@
 
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
+import com.comphenix.protocol.wrappers.BlockPosition;
+import org.jetbrains.annotations.Nullable;
+
+
 /**
+ * {@link org.bukkit.entity.EnderCrystal} watcher
+ *
  * @author Mark Vainomaa
  */
-public interface FlagWatcher {
+public interface EnderCrystalWatcher extends EntityWatcher {
+    boolean isShowingBottom();
+    void setShowingBottom(boolean showingBottom);
+
+    @Nullable BlockPosition getBeamTarget();
+    void setBeamTarget(@Nullable BlockPosition target);
 }

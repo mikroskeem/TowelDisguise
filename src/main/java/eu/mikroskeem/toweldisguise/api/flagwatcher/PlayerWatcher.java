@@ -25,29 +25,41 @@
 
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
+import com.comphenix.protocol.wrappers.WrappedGameProfile;
+import org.bukkit.block.BlockFace;
+import org.bukkit.inventory.MainHand;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+
 /**
- * {@link org.bukkit.entity.AreaEffectCloud} watcher
+ * {@link org.bukkit.entity.Player} watcher
  *
  * @author Mark Vainomaa
  */
-public interface AreaEffectCloudWatcher extends EntityWatcher {
-    float getRadius();
-    void setRadius(float radius);
+public interface PlayerWatcher extends LivingEntityWatcher {
+    float getAdditionalHearts();
+    void setAdditionalHearts(float additionalHearts);
 
-    int getColor();
-    void setColor(int color);
+    int getScore();
+    void setScore(int score);
 
-    int getParticleId();
-    void setParticleId(int particleId);
+    MainHand getMainHand();
+    void setMainHand(MainHand mainHand);
 
-    boolean hasIgnoreRadius();
-    void setIgnoreRadius(boolean ignoreRadius);
+    boolean isHandActive();
+    void setHandActive(boolean active);
 
-    /* TODO: http://wiki.vg/Entities#AreaEffectCloud
-    int getParticleParamOne();
-    void setParticleParamOne(int paramOne);
+    int getSkinFlags();
 
-    int getParticleParamTwo();
-    void setParticleParamTwo(int paramTwo);
-    */
+    boolean isDisplayedInTab();
+    void setDisplayedInTab(boolean displayedInTab);
+
+    WrappedGameProfile getGameProfile();
+    void setGameProfile(@NotNull WrappedGameProfile gameProfile);
+
+    boolean isSleeping();
+    void setSleeping(boolean sleeping, @Nullable BlockFace direction);
+
+    // TODO: Shoulders data
 }

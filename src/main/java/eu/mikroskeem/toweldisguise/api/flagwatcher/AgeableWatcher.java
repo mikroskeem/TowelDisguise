@@ -30,7 +30,7 @@ package eu.mikroskeem.toweldisguise.api.flagwatcher;
  *
  * @author Mark Vainomaa
  */
-public interface AgeableWatcher extends FlagWatcher {
+public interface AgeableWatcher extends EntityWatcher {
     boolean isAdult();
     void setAdult(boolean adult);
 

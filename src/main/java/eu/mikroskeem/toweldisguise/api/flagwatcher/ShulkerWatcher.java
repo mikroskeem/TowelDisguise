@@ -25,29 +25,26 @@
 
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
+import com.comphenix.protocol.wrappers.BlockPosition;
+import org.bukkit.block.BlockFace;
+import org.jetbrains.annotations.Nullable;
+
+
 /**
- * {@link org.bukkit.entity.AreaEffectCloud} watcher
+ * {@link org.bukkit.entity.Shulker} watcher
  *
  * @author Mark Vainomaa
  */
-public interface AreaEffectCloudWatcher extends EntityWatcher {
-    float getRadius();
-    void setRadius(float radius);
+public interface ShulkerWatcher extends GolemWatcher {
+    BlockFace getFacingDirection();
+    void setFacingDirection(BlockFace blockFace);
+
+    @Nullable BlockPosition getPosition();
+    void setPosition(@Nullable BlockPosition position);
+
+    byte getShieldHeight();
+    void setShieldHeight(byte height);
 
     int getColor();
     void setColor(int color);
-
-    int getParticleId();
-    void setParticleId(int particleId);
-
-    boolean hasIgnoreRadius();
-    void setIgnoreRadius(boolean ignoreRadius);
-
-    /* TODO: http://wiki.vg/Entities#AreaEffectCloud
-    int getParticleParamOne();
-    void setParticleParamOne(int paramOne);
-
-    int getParticleParamTwo();
-    void setParticleParamTwo(int paramTwo);
-    */
 }

@@ -26,28 +26,16 @@
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
 /**
- * {@link org.bukkit.entity.AreaEffectCloud} watcher
+ * {@link org.bukkit.entity.Pig} watcher
  *
  * @author Mark Vainomaa
  */
-public interface AreaEffectCloudWatcher extends EntityWatcher {
-    float getRadius();
-    void setRadius(float radius);
+public interface PigWatcher extends AnimalWatcher {
+    boolean hasSaddle();
+    void setHasSaddle(boolean hasSaddle);
 
-    int getColor();
-    void setColor(int color);
-
-    int getParticleId();
-    void setParticleId(int particleId);
-
-    boolean hasIgnoreRadius();
-    void setIgnoreRadius(boolean ignoreRadius);
-
-    /* TODO: http://wiki.vg/Entities#AreaEffectCloud
-    int getParticleParamOne();
-    void setParticleParamOne(int paramOne);
-
-    int getParticleParamTwo();
-    void setParticleParamTwo(int paramTwo);
+    /* TODO: needed?
+    int getBoostTime();
+    void setBoostTime(int boostTime);
     */
 }

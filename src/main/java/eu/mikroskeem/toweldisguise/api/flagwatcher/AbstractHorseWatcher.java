@@ -35,12 +35,9 @@ import java.util.UUID;
  *
  * @author Mark Vainomaa
  */
-public interface AbstractHorseWatcher extends FlagWatcher {
+public interface AbstractHorseWatcher extends AnimalWatcher {
     @Nullable UUID getOwner();
-    void setOwner(UUID owner);
-
-    boolean isCarryingChest();
-    void setCarryingChest(boolean hasChest);
+    void setOwner(@Nullable UUID owner);
 
     boolean isBreedable();
     void setBreedable(boolean breedable);

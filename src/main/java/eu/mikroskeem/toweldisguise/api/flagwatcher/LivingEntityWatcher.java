@@ -25,25 +25,25 @@
 
 package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
-import org.bukkit.potion.PotionEffectType;
-
-
 /**
  * {@link org.bukkit.entity.LivingEntity} watcher
  *
  * @author Mark Vainomaa
  */
-public interface LivingEntityWatcher extends FlagWatcher {
-    void addPotionEffect(PotionEffectType potionEffectType);
-    void removePotionEffect(PotionEffectType potionEffectType);
-    boolean hasPotionEffect(PotionEffectType potionEffectType);
-
+public interface LivingEntityWatcher extends EntityWatcher {
     float getHealth();
     void setHealth(float health);
 
+    /*
+    void addPotionEffect(PotionEffectType potionEffectType);
+    void removePotionEffect(PotionEffectType potionEffectType);
+    boolean hasPotionEffect(PotionEffectType potionEffectType);
+    */
+    int getPotionEffectColor();
+    void setPotionEffectColor(int potionEffectColor);
+
     double getMaxHealth();
     void setMaxHealth(double maxHealth);
-    boolean hasMaxHealthSet();
 
     boolean arePotionParticlesAmbient();
     void setPotionParticlesAmbient(boolean particlesAmbient);

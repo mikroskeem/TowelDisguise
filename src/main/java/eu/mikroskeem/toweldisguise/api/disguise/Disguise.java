@@ -25,7 +25,7 @@
 
 package eu.mikroskeem.toweldisguise.api.disguise;
 
-import eu.mikroskeem.toweldisguise.api.flagwatcher.FlagWatcher;
+import eu.mikroskeem.toweldisguise.api.flagwatcher.EntityWatcher;
 import org.bukkit.entity.EntityType;
 
 
@@ -43,9 +43,9 @@ public interface Disguise {
     EntityType getDisguiseType();
 
     /**
-     * Gets disguise {@link FlagWatcher}
+     * Gets disguise {@link EntityWatcher}
      *
      * @return Disguise flagwatcher
      */
-    FlagWatcher getFlagWatcher();
+    EntityWatcher getFlagWatcher();
 }
