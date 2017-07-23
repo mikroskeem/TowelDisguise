@@ -23,36 +23,45 @@
  * THE SOFTWARE.
  */
 
-package eu.mikroskeem.toweldisguise.api;
+package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
-import eu.mikroskeem.toweldisguise.api.disguise.AppliedDisguise;
-import eu.mikroskeem.toweldisguise.api.disguise.Disguise;
-import org.bukkit.entity.Entity;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
+import org.bukkit.util.EulerAngle;
 
 
 /**
- * TowelDisguise plugin API
- *
  * @author Mark Vainomaa
  */
-public interface TowelDisguiseAPI {
-    /**
-     * Disguise an entity
-     *
-     * @param entity Entity to disguise
-     * @param disguise Disguise to apply on an entity
-     * @return {@link AppliedDisguise} object
-     */
-    @NotNull
-    @Contract("null, null -> fail")
-    AppliedDisguise disguiseEntity(Entity entity, Disguise disguise);
+public interface ArmorStandWatcher extends LivingEntityWatcher {
+    EulerAngle getBody();
+    void setBody(EulerAngle vector);
 
-    /**
-     * Undisguises an entity
-     *
-     * @param entity Entity to undisguise
-     */
-    void undisguiseEntity(Entity entity);
+    EulerAngle getHead();
+    void setHead(EulerAngle vector);
+
+    EulerAngle getLeftArm();
+    void setLeftArm(EulerAngle vector);
+
+    EulerAngle getRightArm();
+    void setRightArm(EulerAngle vector);
+
+    EulerAngle getLeftLeg();
+    void setLeftLeg(EulerAngle vector);
+
+    EulerAngle getRightLeg();
+    void setRightLeg(EulerAngle vector);
+
+    boolean isMarker();
+    void setMarker(boolean marker);
+
+    boolean hasNoBasePlate();
+    void setNoBasePlate(boolean noBasePlate);
+
+    boolean hasNoGravity();
+    void setNoGravity(boolean noGravity);
+
+    boolean isShowingArms();
+    void setShowArms(boolean showArms);
+
+    boolean isSmall();
+    void setSmall(boolean isSmall);
 }

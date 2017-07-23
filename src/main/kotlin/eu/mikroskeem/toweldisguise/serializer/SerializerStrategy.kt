@@ -23,36 +23,21 @@
  * THE SOFTWARE.
  */
 
-package eu.mikroskeem.toweldisguise.api;
+package eu.mikroskeem.toweldisguise.serializer
 
-import eu.mikroskeem.toweldisguise.api.disguise.AppliedDisguise;
-import eu.mikroskeem.toweldisguise.api.disguise.Disguise;
-import org.bukkit.entity.Entity;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-
+import com.google.gson.ExclusionStrategy
+import com.google.gson.FieldAttributes
+import com.google.gson.annotations.SerializedName
 
 /**
- * TowelDisguise plugin API
- *
  * @author Mark Vainomaa
  */
-public interface TowelDisguiseAPI {
-    /**
-     * Disguise an entity
-     *
-     * @param entity Entity to disguise
-     * @param disguise Disguise to apply on an entity
-     * @return {@link AppliedDisguise} object
-     */
-    @NotNull
-    @Contract("null, null -> fail")
-    AppliedDisguise disguiseEntity(Entity entity, Disguise disguise);
+class SerializerStrategy: ExclusionStrategy {
+    override fun shouldSkipClass(clazz: Class<*>?): Boolean {
+        return false
+    }
 
-    /**
-     * Undisguises an entity
-     *
-     * @param entity Entity to undisguise
-     */
-    void undisguiseEntity(Entity entity);
+    override fun shouldSkipField(f: FieldAttributes): Boolean {
+        return f.getAnnotation(SerializedName::class.java) == null
+    }
 }

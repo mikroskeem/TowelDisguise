@@ -23,36 +23,29 @@
  * THE SOFTWARE.
  */
 
-package eu.mikroskeem.toweldisguise.api;
+package eu.mikroskeem.toweldisguise.api.disguise;
 
-import eu.mikroskeem.toweldisguise.api.disguise.AppliedDisguise;
-import eu.mikroskeem.toweldisguise.api.disguise.Disguise;
-import org.bukkit.entity.Entity;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
+import eu.mikroskeem.toweldisguise.api.flagwatcher.FlagWatcher;
+import org.bukkit.entity.EntityType;
 
 
 /**
- * TowelDisguise plugin API
+ * Interface representing disguise
  *
  * @author Mark Vainomaa
  */
-public interface TowelDisguiseAPI {
+public interface Disguise {
     /**
-     * Disguise an entity
+     * Gets disguise type
      *
-     * @param entity Entity to disguise
-     * @param disguise Disguise to apply on an entity
-     * @return {@link AppliedDisguise} object
+     * @return Disguise type
      */
-    @NotNull
-    @Contract("null, null -> fail")
-    AppliedDisguise disguiseEntity(Entity entity, Disguise disguise);
+    EntityType getDisguiseType();
 
     /**
-     * Undisguises an entity
+     * Gets disguise {@link FlagWatcher}
      *
-     * @param entity Entity to undisguise
+     * @return Disguise flagwatcher
      */
-    void undisguiseEntity(Entity entity);
+    FlagWatcher getFlagWatcher();
 }

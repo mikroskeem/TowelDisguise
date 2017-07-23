@@ -23,36 +23,31 @@
  * THE SOFTWARE.
  */
 
-package eu.mikroskeem.toweldisguise.api;
+package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
-import eu.mikroskeem.toweldisguise.api.disguise.AppliedDisguise;
-import eu.mikroskeem.toweldisguise.api.disguise.Disguise;
-import org.bukkit.entity.Entity;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
+import org.bukkit.potion.PotionEffectType;
 
 
 /**
- * TowelDisguise plugin API
+ * {@link org.bukkit.entity.LivingEntity} watcher
  *
  * @author Mark Vainomaa
  */
-public interface TowelDisguiseAPI {
-    /**
-     * Disguise an entity
-     *
-     * @param entity Entity to disguise
-     * @param disguise Disguise to apply on an entity
-     * @return {@link AppliedDisguise} object
-     */
-    @NotNull
-    @Contract("null, null -> fail")
-    AppliedDisguise disguiseEntity(Entity entity, Disguise disguise);
+public interface LivingEntityWatcher extends FlagWatcher {
+    void addPotionEffect(PotionEffectType potionEffectType);
+    void removePotionEffect(PotionEffectType potionEffectType);
+    boolean hasPotionEffect(PotionEffectType potionEffectType);
 
-    /**
-     * Undisguises an entity
-     *
-     * @param entity Entity to undisguise
-     */
-    void undisguiseEntity(Entity entity);
+    float getHealth();
+    void setHealth(float health);
+
+    double getMaxHealth();
+    void setMaxHealth(double maxHealth);
+    boolean hasMaxHealthSet();
+
+    boolean arePotionParticlesAmbient();
+    void setPotionParticlesAmbient(boolean particlesAmbient);
+
+    int getArrowsSticking();
+    void setArrowsSticking(int arrowsSticking);
 }

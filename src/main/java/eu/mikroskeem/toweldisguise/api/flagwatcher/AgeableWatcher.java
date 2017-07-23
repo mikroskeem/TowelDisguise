@@ -23,36 +23,17 @@
  * THE SOFTWARE.
  */
 
-package eu.mikroskeem.toweldisguise.api;
-
-import eu.mikroskeem.toweldisguise.api.disguise.AppliedDisguise;
-import eu.mikroskeem.toweldisguise.api.disguise.Disguise;
-import org.bukkit.entity.Entity;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-
+package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
 /**
- * TowelDisguise plugin API
+ * {@link org.bukkit.entity.Ageable} watcher
  *
  * @author Mark Vainomaa
  */
-public interface TowelDisguiseAPI {
-    /**
-     * Disguise an entity
-     *
-     * @param entity Entity to disguise
-     * @param disguise Disguise to apply on an entity
-     * @return {@link AppliedDisguise} object
-     */
-    @NotNull
-    @Contract("null, null -> fail")
-    AppliedDisguise disguiseEntity(Entity entity, Disguise disguise);
+public interface AgeableWatcher extends FlagWatcher {
+    boolean isAdult();
+    void setAdult(boolean adult);
 
-    /**
-     * Undisguises an entity
-     *
-     * @param entity Entity to undisguise
-     */
-    void undisguiseEntity(Entity entity);
+    boolean isBaby();
+    void setBaby(boolean baby);
 }

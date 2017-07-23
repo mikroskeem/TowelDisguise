@@ -23,36 +23,40 @@
  * THE SOFTWARE.
  */
 
-package eu.mikroskeem.toweldisguise.api;
+package eu.mikroskeem.toweldisguise.api.flagwatcher;
 
-import eu.mikroskeem.toweldisguise.api.disguise.AppliedDisguise;
-import eu.mikroskeem.toweldisguise.api.disguise.Disguise;
-import org.bukkit.entity.Entity;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.UUID;
 
 
 /**
- * TowelDisguise plugin API
+ * {@link org.bukkit.entity.AbstractHorse} watcher
  *
  * @author Mark Vainomaa
  */
-public interface TowelDisguiseAPI {
-    /**
-     * Disguise an entity
-     *
-     * @param entity Entity to disguise
-     * @param disguise Disguise to apply on an entity
-     * @return {@link AppliedDisguise} object
-     */
-    @NotNull
-    @Contract("null, null -> fail")
-    AppliedDisguise disguiseEntity(Entity entity, Disguise disguise);
+public interface AbstractHorseWatcher extends FlagWatcher {
+    @Nullable UUID getOwner();
+    void setOwner(UUID owner);
 
-    /**
-     * Undisguises an entity
-     *
-     * @param entity Entity to undisguise
-     */
-    void undisguiseEntity(Entity entity);
+    boolean isCarryingChest();
+    void setCarryingChest(boolean hasChest);
+
+    boolean isBreedable();
+    void setBreedable(boolean breedable);
+
+    boolean isGrazing();
+    void setGrazing(boolean grazing);
+
+    boolean isMouthOpen();
+    void setMouthOpen(boolean mouthOpen);
+
+    boolean isRearing();
+    void setRearing(boolean rearing);
+
+    boolean isSaddled();
+    void setSaddled(boolean saddled);
+
+    boolean isTamed();
+    void setTamed(boolean tamed);
 }
