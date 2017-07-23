@@ -1,0 +1,11 @@
+name: TowelDisguise
+version: @version@
+description: @description@
+main: eu.mikroskeem.toweldisguise.TowelDisguise
+website: https://github.com/mikroskeem/TowelDisguise
+
+authors:
+- mikroskeem
+
+depend:
+- ProtocolLib
