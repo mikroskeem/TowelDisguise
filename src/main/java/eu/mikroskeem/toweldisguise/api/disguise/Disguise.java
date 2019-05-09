@@ -1,7 +1,7 @@
 /*
  * This file is part of project TowelDisguise, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2017 Mark Vainomaa <mikroskeem@mikroskeem.eu>
+ * Copyright (c) 2017-2019 Mark Vainomaa <mikroskeem@mikroskeem.eu>
  * Copyright (c) Contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +34,7 @@ import org.bukkit.entity.EntityType;
  *
  * @author Mark Vainomaa
  */
-public interface Disguise {
+public interface Disguise<W extends EntityWatcher> {
     /**
      * Gets disguise type
      *
@@ -47,5 +47,5 @@ public interface Disguise {
      *
      * @return Disguise flagwatcher
      */
-    EntityWatcher getFlagWatcher();
+    W getFlagWatcher();
 }

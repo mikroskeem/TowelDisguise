@@ -1,7 +1,7 @@
 /*
  * This file is part of project TowelDisguise, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2017 Mark Vainomaa <mikroskeem@mikroskeem.eu>
+ * Copyright (c) 2017-2019 Mark Vainomaa <mikroskeem@mikroskeem.eu>
  * Copyright (c) Contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,16 +26,7 @@
 package eu.mikroskeem.toweldisguise
 
 import eu.mikroskeem.toweldisguise.api.TowelDisguiseAPI
-import eu.mikroskeem.toweldisguise.configuration.HEADER
-import eu.mikroskeem.toweldisguise.configuration.TowelDisguiseConfiguration
-import ninja.leaping.configurate.ConfigurationOptions
-import ninja.leaping.configurate.commented.CommentedConfigurationNode
-import ninja.leaping.configurate.hocon.HoconConfigurationLoader
-import ninja.leaping.configurate.loader.ConfigurationLoader
-import ninja.leaping.configurate.loader.HeaderMode
-import ninja.leaping.configurate.objectmapping.ObjectMapper
 import org.bukkit.plugin.java.JavaPlugin
-import java.nio.file.Paths
 
 /**
  * TowelDisguise plugin class
@@ -44,46 +35,13 @@ import java.nio.file.Paths
  */
 class TowelDisguise: JavaPlugin() {
     internal lateinit var api: TowelDisguiseAPI
-    internal lateinit var config: TowelDisguiseConfiguration
-
-    // Configuration loading related
-    private lateinit var baseNode: CommentedConfigurationNode
-    private lateinit var loader: ConfigurationLoader<CommentedConfigurationNode>
-    private lateinit var objectMapper: ObjectMapper<TowelDisguiseConfiguration>.BoundInstance
 
     override fun onEnable() {
         // Load configuration
-        initLoader()
         reloadConfig()
     }
 
     override fun onDisable() {
 
-    }
-
-    fun loadConfig() {
-        baseNode = loader.load()
-        config = objectMapper.populate(baseNode.getNode("toweldisguise"))
-    }
-
-    override fun saveConfig() {
-        objectMapper.serialize(baseNode.getNode("toweldisguise"))
-        loader.save(baseNode)
-    }
-
-    override fun reloadConfig() {
-        loadConfig()
-        saveConfig()
-    }
-
-    private fun initLoader() {
-        val path = Paths.get(dataFolder.toString(), "config.cfg")
-        loader = HoconConfigurationLoader.builder()
-                .setHeaderMode(HeaderMode.PRESET)
-                .setDefaultOptions(ConfigurationOptions.defaults().setHeader(HEADER).setShouldCopyDefaults(true))
-                .setPath(path)
-                .build()
-        objectMapper = ObjectMapper.forClass(TowelDisguiseConfiguration::class.java).bindToNew()
-        config = objectMapper.instance
     }
 }

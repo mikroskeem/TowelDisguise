@@ -1,7 +1,7 @@
 /*
  * This file is part of project TowelDisguise, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2017 Mark Vainomaa <mikroskeem@mikroskeem.eu>
+ * Copyright (c) 2017-2019 Mark Vainomaa <mikroskeem@mikroskeem.eu>
  * Copyright (c) Contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,15 +27,10 @@ package eu.mikroskeem.test.toweldisguise.serialization
 
 import com.google.gson.GsonBuilder
 import eu.mikroskeem.toweldisguise.impl.DisguiseEquipmentImpl
-import eu.mikroskeem.toweldisguise.impl.DisguiseImpl
 import eu.mikroskeem.toweldisguise.serializer.DisguiseEquipmentSerializer
 import eu.mikroskeem.toweldisguise.serializer.ItemStackSerializer
 import eu.mikroskeem.toweldisguise.serializer.SerializerStrategy
-import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
-import org.junit.Ignore
-import org.junit.Test
-import org.mockito.Mockito
 
 /**
  * @author Mark Vainomaa
@@ -47,6 +42,7 @@ class DisguiseEquipmentSerializationTester {
             .addSerializationExclusionStrategy(SerializerStrategy())
             .create()
 
+    /*
     @Test
     @Ignore("StackOverflowError")
     fun testSerialize() {
@@ -70,4 +66,5 @@ class DisguiseEquipmentSerializationTester {
         val disguise = Mockito.mock(DisguiseImpl::class.java)
         val equipment = gson.fromJson("{}", DisguiseEquipmentImpl::class.java)
     }
+    */
 }

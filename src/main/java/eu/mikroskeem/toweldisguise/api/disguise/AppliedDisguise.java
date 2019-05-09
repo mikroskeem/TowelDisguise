@@ -1,7 +1,7 @@
 /*
  * This file is part of project TowelDisguise, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2017 Mark Vainomaa <mikroskeem@mikroskeem.eu>
+ * Copyright (c) 2017-2019 Mark Vainomaa <mikroskeem@mikroskeem.eu>
  * Copyright (c) Contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +25,7 @@
 
 package eu.mikroskeem.toweldisguise.api.disguise;
 
+import eu.mikroskeem.toweldisguise.api.flagwatcher.EntityWatcher;
 import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 
@@ -34,7 +35,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Mark Vainomaa
  */
-public interface AppliedDisguise extends Disguise {
+public interface AppliedDisguise<W extends EntityWatcher> extends Disguise<W> {
     /**
      * Gets {@link Entity} whom {@link Disguise} got applied on
      *
